@@ -17,77 +17,78 @@ const girdTemplateLargeScreens = `
     "d h i"
     "g h i"
     "g h j"
+    "g h j"
 `
 
 const gridTemplateSmallScreens = `
-  "a"
-  "a"
-  "a"
-  "a"
-  "b"
-  "b"
-  "b"
-  "b"
-  "c"
-  "c"
-  "c"
-  "d"
-  "d"
-  "d"
-  "e"
-  "e"
-  "f"
-  "f"
-  "f"
-  "g"
-  "g"
-  "g"
-  "h"
-  "h"
-  "h"
-  "h"
-  "i"
-  "i"
-  "j"
-  "j"
+"a"
+"a"
+"a"
+"a"
+"b"
+"b"
+"b"
+"b"
+"c"
+"c"
+"c"
+"d"
+"d"
+"d"
+"e"
+"e"
+"f"
+"f"
+"f"
+"g"
+"g"
+"g"
+"h"
+"h"
+"h"
+"h"
+"i"
+"i"
+"j"
+"j"
 `;
 
 const Dashboard = () => {
-    const isAboveMediumScreens = useMediaQuery("(min-width: 1000px)");    
-  
+    const isAboveMediumScreens = useMediaQuery("(min-width: 1000px)");
+
 
     return (
-        <Box width="100%" height="100%" 
-        display="grid"
-        gap="1.5rem"
-        sx={
-            
-            isAboveMediumScreens? 
-            {
-           
-            gridTemplateColumns: "repeat(3, minmax(370px, 1fr))",
-            gridTemplateRows: "repeat(10, minmax(60px, 1fr))",
-            gridTemplateAreas: girdTemplateLargeScreens,
-        }
-        :{
-            gridTemplateAreas: gridTemplateSmallScreens,
+        <Box
+            width="100%" 
+            height="100%"
+            display="grid"
+            gap="1.5rem"
+            sx={
 
-            gridAutoColumns: "1fr",
-            gridAutoRows: "80px",
-             
+                isAboveMediumScreens ?
+                    {
+
+                        gridTemplateColumns: "repeat(3, minmax(370px, 1fr))",
+                        gridTemplateRows: "repeat(10, minmax(60px, 1fr))",
+                        gridTemplateAreas: girdTemplateLargeScreens,
+                    }
+                    : {
+                      
+
+                        gridAutoColumns: "1fr",
+                        gridAutoRows: "80px",
+                        gridTemplateAreas: gridTemplateSmallScreens,
 
 
-        }
-    
-    }>
-        <DashboardBox/>
-         
 
+                    }
+
+            }>
             <Row1 />
             <Row2 />
             <Row3 />
-          
-          
+
+
         </Box>
     )
 }
